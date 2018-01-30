@@ -2,7 +2,8 @@
    parser warp the database info, sentence, semantic nodes together
 
 """
-from .node import Node
+from ch2sql.node import Node
+import jieba
 
 
 class ParserTree(object):

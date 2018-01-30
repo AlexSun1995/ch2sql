@@ -1,5 +1,6 @@
 # -*-coding:utf-8 -*-
 import jieba
+from ch2sql.database import Table
 import sys
 
 
@@ -17,10 +18,29 @@ class Sentence(object):
         self.db_info = db_info
 
     @staticmethod
-    def cutting(sentence):
-        # using jieba cut function
-        jieba.cut(sentence, HMM=True)
-        # 根据数据库字段信息更行jieba分词词典
+    def cutting(sentence, table=None):
+        """
+        :param sentence: 输入的查询语句
+        :param table: 数据表格对应的Table
+        :return: 分词结果
+        """
+        # 根据数据库字段信息更新jieba分词词典,确保表的关键词不能分开
+        if table is None:
+            return list(jieba.cut(sentence))
+        suggest_words = list(table.get_column_names())
+        ans = None
+        for column in table:
+            if column.data_type != "text":
+                continue
+            tmp = column.values_sample(100)
+            for v in tmp:
+                suggest_words.append(v)
+        print(suggest_words)
+        for word in suggest_words:
+            if word != " " and word is not None:
+                jieba.suggest_freq(word, True)
+        ans = list(jieba.cut(sentence, HMM=True))
+        return ans
 
     @staticmethod
     def pos_tagging(cutting_list):

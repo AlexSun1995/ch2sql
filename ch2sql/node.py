@@ -25,6 +25,9 @@ class Node(object):
                 UN Unknown Node 未知类型节点
            Node parent
            list: Node child
-
     """
+    pass
+
+
+if __name__ == "__main__":
     pass
