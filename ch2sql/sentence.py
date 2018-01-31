@@ -2,96 +2,40 @@
 import jieba
 from ch2sql.database import Table
 import sys
+from ch2sql.tools.hit_ltp import LtpParser
 
 
 class Sentence(object):
     """
-    对查询语言处理、提取需要的信息统一包装
+    对查询语言输入统一包装. 分词,词性标注, 实体识别的代码在LtpParser类中
+    使查询语句的处理依赖但不耦合LTP工具
     """
-    default_ltp_api_key = "s1n5k7M9i5zXTqamAy3V1U7CkwskygraFX5fpKyH"
 
-    def __init__(self, sentence="这是一条测试语句", db_info=None):
-        # db_info 包括下面几种类型
-        # 1. db_info 为包含字段名和数据类型信息的json格式数据
-        # 2. 在1所包含的信息以外，还有数据表中的数据信息
-        self.sentence = sentence
-        self.db_info = db_info
-
-    @staticmethod
-    def cutting(sentence, table=None):
+    def __init__(self, sentence="这是一条测试语句", table=None):
         """
-        :param sentence: 输入的查询语句
-        :param table: 数据表格对应的Table
-        :return: 分词结果
+        :param sentence: 查询语句输入
+        :param table: 查询对应的数据表格对象
         """
-        # 根据数据库字段信息更新jieba分词词典,确保表的关键词不能分开
-        if table is None:
-            return list(jieba.cut(sentence))
-        suggest_words = list(table.get_column_names())
-        ans = None
-        for column in table:
-            if column.data_type != "text":
-                continue
-            tmp = column.values_sample(100)
-            for v in tmp:
-                suggest_words.append(v)
-        print(suggest_words)
-        for word in suggest_words:
-            if word != " " and word is not None:
-                jieba.suggest_freq(word, True)
-        ans = list(jieba.cut(sentence, HMM=True))
-        return ans
+        self.parser = LtpParser
+        self.table = table
+        self._sentence = sentence
+        self._tokens = self.parser.cutting(sentence, table)
+        self._pos_tags = self.parser.pos_tagging(self.tokens)
+        self._entities_list = self.parser.entity_recognize(self.tokens, self.pos_tags)
+        self._dp_tree = self.parser.dependency_parsing(self.tokens, self.pos_tags)
 
-    @staticmethod
-    def pos_tagging(cutting_list):
-        pass
+    @property
+    def tokens(self):
+        return self._tokens
 
-    @staticmethod
-    def entity_recognize(cutting_list, tagging_list):
-        pass
+    @property
+    def pos_tags(self):
+        return self._pos_tags
 
-    @staticmethod
-    def dependency_parsing(cutting_list, tagging_list):
-        pass
+    @property
+    def entities_list(self):
+        return self._entities_list
 
-    def info_wrapper(self):
-        pass
-
-    @staticmethod
-    def getting_by_cloud(sentence, api_key=default_ltp_api_key, pattern='dp'):
-        """
-        调用语言云进行分词、词性标注、命名实体识别。
-        http://api.ltp-cloud.com/
-       （测试阶段使用，调用语言云就不能更新分词词典）
-        :param sentence:
-        :param api_key:
-        :param pattern: ws: 分词, pos:词性标注, ner: 命名实体识别
-        dp:依存语法分析, srl:语义角色标注
-        :return:
-        """
-        import urllib.parse
-        import urllib.request
-        url_get_base = u"http://api.ltp-cloud.com/analysis/?"
-        args = {
-            'api_key': api_key,
-            'text': sentence,
-            'pattern': pattern,
-            'format': 'plain'
-        }
-        url = url_get_base + urllib.parse.urlencode(args)
-        # print(url)
-        result = urllib.request.urlopen(url)
-        content = result.read().strip()
-        return content.decode('utf-8')
-
-    @staticmethod
-    def getting_all_by_cloud(sentence):
-        patterns = ['ws', 'pos', 'ner', 'dp', 'srl']
-        for pattern in patterns:
-            result = Sentence.getting_by_cloud(sentence, pattern=pattern)
-            print('pattern type:{}'.format(pattern))
-            print(result)
-
-
-if __name__ == '__main__':
-    Sentence.getting_all_by_cloud("三月份的平均气温大于北京的城市")
+    @property
+    def dp_tree(self):
+        return self._dp_tree

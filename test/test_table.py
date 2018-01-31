@@ -59,4 +59,49 @@ def test_jieba_cut():
     table = Table(table_name='广告投放效果', path=path)
     s1 = "APP下载量"
     s2 = "独立访问用户"
-    assert (len(Sentence.cutting(s1, table)) == len(Sentence.cutting(s2, table)) == 1)
+    s1 = Sentence(s1, table)
+    s2 = Sentence(s2, table)
+    assert (len(s1.tokens) == len(s2.tokens) == 1)
+
+
+def test_ltp():
+    """
+    对LtpParser 类进行测试
+    :return:
+    """
+    from ch2sql.tools.hit_ltp import LtpParser
+    from ch2sql.database import Table
+    import os
+    path = "../datasource/广告投放效果2.xls"
+    assert os.path.exists(path)
+    path = os.path.abspath(path)
+    table = Table(table_name='广告投放效果', path=path)
+    ltp = LtpParser()
+    s = "北京地区总APP下载量"
+    tokens = LtpParser.cutting(s, table)
+    tags = LtpParser.pos_tagging(tokens)
+    entities = LtpParser.entity_recognize(tokens, tags)
+    arcs = LtpParser.dependency_parsing(tokens, tags)
+    print(list(entities))
+    print("\t".join("%s -- > %s:%s; " % (tokens[arcs[i].head - 1], tokens[i], arcs[i].relation)
+                    for i in range(len(arcs))))
+
+
+def test_sentence():
+    """
+    Sentence对输入的查询语句进行了包装, 依赖于LtpParse类进行自然语言处理
+    :return:
+    """
+    # 1.31 3:44 PM 测试通过
+    from ch2sql.database import Table
+    from ch2sql.sentence import Sentence
+    import os
+    path = "../datasource/广告投放效果2.xls"
+    assert os.path.exists(path)
+    path = os.path.abspath(path)
+    table = Table(table_name='广告投放效果', path=path)
+    s1 = "北京地区的APP下载量"
+    s1 = Sentence(s1, table)
+    print(s1.tokens)
+    print(list(s1.pos_tags))
+    print(s1.dp_tree)
