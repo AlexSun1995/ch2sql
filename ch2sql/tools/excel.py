@@ -38,7 +38,7 @@ class ExcelWrapper(object):
             cols = self.sheet.col_values(i)
             assert len(cols) > 1
             for j in range(1, len(cols)):
-                tmp[column_name].append(cols[i])
+                tmp[column_name].append(cols[j])
         return tmp
 
     def _get_title_types(self):
@@ -46,7 +46,7 @@ class ExcelWrapper(object):
         for i in range(self.length):
             title = self.titles[i]
             # just the cell below the title
-            _type_id = self.sheet.cell_type(i, 1)
+            _type_id = self.sheet.cell_type(1, i)
             if _type_id == 0:
                 type_name = 'empty'
             elif _type_id == 1:
