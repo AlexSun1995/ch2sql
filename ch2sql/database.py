@@ -49,6 +49,21 @@ class Table(object):
         """
         return self.columns[index]
 
+    def get_column_by_name(self, name):
+        name_list = self.get_column_names()
+        index = list(name_list).index(name)
+        return self.columns[index]
+
+    def get_values_set_by_name(self, name, num):
+        """
+        :param name: 属性名
+        :param num: 返回的值最大个数
+        :return:
+        """
+        name_list = self.get_column_names()
+        index = list(name_list).index(name)
+        return self.columns[index].values_sample(num)
+
     def __str__(self):
         print("table name:{}".format(self.table_name))
 

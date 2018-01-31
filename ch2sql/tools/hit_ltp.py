@@ -30,7 +30,7 @@ class LtpParser(object):
             for v in tmp:
                 suggest_words.append(v)
         for word in suggest_words:
-            if word != " " and word is not None:
+            if word != " " and word is not None and type(word) == str:
                 jieba.suggest_freq(word, True)
         ans = list(jieba.cut(sentence, HMM=True))
         return ans
@@ -47,13 +47,12 @@ class LtpParser(object):
 
     @staticmethod
     def entity_recognize(cutting_list, tagging_list):
-        # 命名实体识别
-        ner_model_path = os.path.join(LtpParser.ltp_path, 'ner.model')  # 命名实体识别模型路径，模型名称为`pos.model`
+        ner_model_path = os.path.join(LtpParser.ltp_path, 'ner.model')
         from pyltp import NamedEntityRecognizer
-        recognizer = NamedEntityRecognizer()  # 初始化实例
-        recognizer.load(ner_model_path)  # 加载模型
-        ne_tags = recognizer.recognize(cutting_list, tagging_list)  # 命名实体识别
-        recognizer.release()  # 释放模型
+        recognizer = NamedEntityRecognizer()
+        recognizer.load(ner_model_path)
+        ne_tags = recognizer.recognize(cutting_list, tagging_list)
+        recognizer.release()
         return ne_tags
 
     @staticmethod
@@ -65,12 +64,12 @@ class LtpParser(object):
         :return:依存分析的结果
         """
         # 依存句法分析
-        par_model_path = os.path.join(LtpParser.ltp_path, 'parser.model')  # 依存句法分析模型路径，模型名称为`parser.model`
+        par_model_path = os.path.join(LtpParser.ltp_path, 'parser.model')
         from pyltp import Parser
-        parser = Parser()  # 初始化实例
-        parser.load(par_model_path)  # 加载模型
-        arcs = parser.parse(cutting_list, tagging_list)  # 句法分析
-        parser.release()  # 释放模型
+        parser = Parser()
+        parser.load(par_model_path)
+        arcs = parser.parse(cutting_list, tagging_list)
+        parser.release()
         return arcs
 
 

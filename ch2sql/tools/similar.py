@@ -1,13 +1,13 @@
 import os
+import synonyms
 """
   载入哈工大同义词表
 """
-
-hit_source_file = os.path.join("lib", "hit_simi_words.txt");
+import ch2sql
+hit_source_file = os.path.join(ch2sql.__file__[:-12], "lib/hit_simi_words.txt");
 loaded = False
 _synonyms_dict = {}
 _id_dict = {}
-
 
 def load():
     """
@@ -71,7 +71,6 @@ def similar_scores(word1, word2):
     使用词向量表示计算两个词之间的语义相似度
     :return: word1 和 word2的语义相似度得分(最大 1.0)
     """
-    import synonyms
     return synonyms.compare(word1, word2)
 
 

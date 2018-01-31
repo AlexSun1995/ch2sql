@@ -77,7 +77,7 @@ def test_ltp():
     path = os.path.abspath(path)
     table = Table(table_name='广告投放效果', path=path)
     ltp = LtpParser()
-    s = "北京地区总APP下载量"
+    s = "APP下载量比APP激活量大"
     tokens = LtpParser.cutting(s, table)
     tags = LtpParser.pos_tagging(tokens)
     entities = LtpParser.entity_recognize(tokens, tags)
@@ -105,3 +105,16 @@ def test_sentence():
     print(s1.tokens)
     print(list(s1.pos_tags))
     print(s1.dp_tree)
+
+
+def test_mapping():
+    from ch2sql.database import Table
+    from ch2sql.sentence import Sentence
+    import os
+    path = "../datasource/销售业绩报表.xlsx"
+    assert os.path.exists(path)
+    path = os.path.abspath(path)
+    table = Table(table_name='销售业绩报表', path=path)
+    s1 = "客户分类是电商客户的数据"
+    s1 = Sentence(s1, table)
+    s1.node_mapping()

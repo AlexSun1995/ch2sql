@@ -3,6 +3,7 @@ import jieba
 from ch2sql.database import Table
 import sys
 from ch2sql.tools.hit_ltp import LtpParser
+from ch2sql.node import *
 
 
 class Sentence(object):
@@ -19,10 +20,17 @@ class Sentence(object):
         self.parser = LtpParser
         self.table = table
         self._sentence = sentence
-        self._tokens = self.parser.cutting(sentence, table)
-        self._pos_tags = self.parser.pos_tagging(self.tokens)
-        self._entities_list = self.parser.entity_recognize(self.tokens, self.pos_tags)
+        self._tokens = list(self.parser.cutting(sentence, table))
+        self._pos_tags = list(self.parser.pos_tagging(self.tokens))
+        self._entities_list = list(self.parser.entity_recognize(self.tokens, self.pos_tags))
         self._dp_tree = self.parser.dependency_parsing(self.tokens, self.pos_tags)
+        self.nodes = self.init_nodes()
+
+    def init_nodes(self):
+        ans = []
+        for i in range(len(self.tokens)):
+            ans.append(Node(self.tokens[i], self.table, self.pos_tags[i]))
+        return ans
 
     @property
     def tokens(self):
@@ -39,3 +47,11 @@ class Sentence(object):
     @property
     def dp_tree(self):
         return self._dp_tree
+
+    def node_mapping(self):
+        mapper = NodeMapper
+        for node in self.nodes:
+            possible_list = mapper.get_possible_node_info_list(node, self.table)
+            print("possible list: ", possible_list)
+
+
