@@ -15,8 +15,7 @@ def test_excel():
     assert excel.length == 14
     assert (len(excel.title_values['APP下载量']) == len(excel.title_values['点击量']))
     assert excel.title_type_dict['APP下载量'] == 'number'
-    print(excel.title_type_dict['日期'])  # why is text? maybe it's the xlrd module's problem
-    # todo
+    print(excel.title_type_dict['日期'])
     assert excel.title_type_dict['日期'] == 'date'
 
 
@@ -115,6 +114,11 @@ def test_mapping():
     assert os.path.exists(path)
     path = os.path.abspath(path)
     table = Table(table_name='销售业绩报表', path=path)
-    s1 = "客户分类是电商客户的数据"
+    s1 = "线上客户的总订单金额"
     s1 = Sentence(s1, table)
     s1.node_mapping()
+
+def test_stopwords():
+    from ch2sql.tools import similar
+    assert similar.is_stopwords("等于") is False
+    assert similar.is_stopwords("的") is True

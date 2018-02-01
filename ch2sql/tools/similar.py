@@ -1,14 +1,20 @@
 import os
-import synonyms
+from ch2sql.tools import synonyms
+import importlib
+
 """
   载入哈工大同义词表
 """
 import ch2sql
-hit_source_file = os.path.join(ch2sql.__file__[:-12], "lib/hit_simi_words.txt");
+hit_source_file = os.path.join(ch2sql.__file__[:-12], "lib/hit_simi_words.txt")
+# 载入停用词表,这里暂时使用四川大学停用词表
+stopwords_file = os.path.join(ch2sql.__file__[:-12], "lib/stopwords.txt")
 loaded = False
 _synonyms_dict = {}
 _id_dict = {}
-
+stopwords = []
+flag = True
+load_stopwords_flag = False
 def load():
     """
     载入哈工大同义词表
@@ -37,6 +43,22 @@ def load():
         loaded = True
         print("hit-synonyms lib file loaded")
 
+def load_stopwords():
+    with open(stopwords_file, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line[:-1]
+            stopwords.append(line)
+    global load_stopwords_flag
+    load_stopwords_flag = True
+
+def is_stopwords(word):
+    global load_stopwords_flag
+    if not load_stopwords_flag or stopwords is None:
+        load_stopwords()
+    if word in stopwords:
+        return True
+    else:
+        return False
 
 def std_word(word):
     """
@@ -71,19 +93,22 @@ def similar_scores(word1, word2):
     使用词向量表示计算两个词之间的语义相似度
     :return: word1 和 word2的语义相似度得分(最大 1.0)
     """
+    global flag
+    if flag:
+        import jieba
+        importlib.reload(jieba)
+        flag = False
     return synonyms.compare(word1, word2)
 
 
+
 if __name__ == "__main__":
-    print(std_word("浙江"))
-    print(std_word("大学"))
-    print(std_word("尚未"))
-    print(synonyms_list("北京市"))
+    print(synonyms_list("类别"))
     import jieba
     s = "北京市今天的最高气温"
     li = list(jieba.cut(s))
     new_li = [std_word(word) for word in li]
     print(new_li)
-    word1 = "杭州"
-    word2 = "杭州市"
+    word1 = "预测销售量"
+    word2 = "中国"
     print(similar_scores(word1, word2))

@@ -58,7 +58,7 @@ class LtpParser(object):
     @staticmethod
     def dependency_parsing(cutting_list, tagging_list):
         """
-        句子依存分析
+        依存句法分析
         :param cutting_list: 分词列表
         :param tagging_list: 词性标注列表
         :return:依存分析的结果

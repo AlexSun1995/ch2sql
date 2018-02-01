@@ -7,7 +7,7 @@ class NodeInfo(object):
     如果type='NN' 或者type='VN', 则score表示节点属于这个类型的概率得分值
     """
 
-    def __init__(self, _word, _type, _symbol, _score=None):
+    def __init__(self, _word, _type, _symbol, _score=1):
         self.word = _word
         self.type = _type
         self.symbol = _symbol
@@ -31,11 +31,11 @@ class NodeMapper(object):
     # TODO 用正则表达式处理中文中常常出现的'比...高模式'
     node_map['大于'] = NodeInfo('大于', 'ON', '>')
     node_map['高于'] = NodeInfo('高于', 'ON', '>')
-    node_map['小于'] = NodeInfo('大于', 'ON', '>')
-    node_map['低于'] = NodeInfo('低于', 'ON', '>')
+    node_map['小于'] = NodeInfo('大于', 'ON', '<')
+    node_map['低于'] = NodeInfo('低于', 'ON', '<')
     node_map['相当于'] = NodeInfo('相当于', 'ON', '=')
     node_map['等于'] = NodeInfo('等于', 'ON', '=')
-    node_map['是'] = NodeInfo('是', 'ON', '>')
+    node_map['是'] = NodeInfo('是', 'ON', '=')
 
     # Function Node
     node_map['平均'] = NodeInfo('平均', 'FN', 'AVG')
@@ -46,6 +46,7 @@ class NodeMapper(object):
     node_map['最低'] = NodeInfo('最低', 'FN', 'MIN')
     node_map['总数'] = NodeInfo('总数', 'FN', 'SUM')
     node_map['总量'] = NodeInfo('总量', 'FN', 'SUM')
+    node_map['总'] = NodeInfo('总', 'FN', 'SUM')
     node_map['之和'] = NodeInfo('之和', 'FN', 'SUM')
     node_map['总数'] = NodeInfo('总数', 'FN', 'COUNT')
 
@@ -64,6 +65,9 @@ class NodeMapper(object):
         # hard code node
         if word in NodeMapper.node_map:
             result.append(NodeMapper.node_map[word])
+            return result
+        if similar.is_stopwords(word):
+            result.append(NodeInfo(word, 'UN', " ", _score=0))
             return result
         for column_name in table.get_column_names():
             score = similar.similar_scores(column_name, word)

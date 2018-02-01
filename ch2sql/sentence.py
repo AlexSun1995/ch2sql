@@ -52,6 +52,6 @@ class Sentence(object):
         mapper = NodeMapper
         for node in self.nodes:
             possible_list = mapper.get_possible_node_info_list(node, self.table)
-            print("possible list: ", possible_list)
+            new_list = [item for item in possible_list if item.score is not None and item.score > 0.5]
 
 

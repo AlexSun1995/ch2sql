@@ -159,8 +159,10 @@ def _get_wv(sentence):
             try:
                 c.append(_vectors.word_vec(y_))
             except KeyError as error:
-                print("not exist in w2v model: %s" % y_)
-                c.append(np.zeros((100,), dtype=float))
+                # print("not exist in w2v model: %s" % y_)
+                # changed here
+                c.append(np.random.uniform(-7,7,size=(100,)))
+                # c.append(np.zeros((100,), dtype=float))
             for n in syns:
                 if n is None: continue
                 try:
@@ -214,6 +216,7 @@ def _similarity_distance(s1, s2):
     '''
     compute similarity with distance measurement
     '''
+
     a = _sim_molecule(_get_wv(s1))
     b = _sim_molecule(_get_wv(s2))
     # https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.norm.html
@@ -224,6 +227,16 @@ def _similarity_distance(s1, s2):
 
     return float("%.3f" % r)
 
+
+def _similarity_distance_2(s1, s2):
+    """
+    如果两个词有一个在word2vec模型中不存在,就直接使用编辑距离
+    author: Alex Sun
+    :param s1:
+    :param s2:
+    :return:
+    """
+    pass
 
 def compare(s1, s2, seg=True):
     '''
