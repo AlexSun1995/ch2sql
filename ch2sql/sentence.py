@@ -1,10 +1,9 @@
 # -*-coding:utf-8 -*-
-import jieba
+
 from ch2sql.database import Table
-import sys
 from ch2sql.tools.hit_ltp import LtpParser
 from ch2sql.node import *
-
+import heapq
 
 class Sentence(object):
     """
@@ -53,5 +52,19 @@ class Sentence(object):
         for node in self.nodes:
             possible_list = mapper.get_possible_node_info_list(node, self.table)
             new_list = [item for item in possible_list if item.score is not None and item.score > 0.5]
+            # the node info with the highest score will be the nodeInfo of the node
+            if len(new_list) == 1:
+                nodeInfo = new_list[0]
+            elif len(new_list) > 1:
+                sorted_list = sorted(new_list,reverse=True)[0]
+                if sorted_list[0].score - sorted_list[1].score >= 0.2:
+                    nodeInfo = sorted_list[0]
+                else:
+                    nodeInfo = NodeInfo(node.word, 'UN',' ',1)
+            else:
+                nodeInfo = NodeInfo(node.word, 'UN',' ',1)
+            node.nodeInfo = nodeInfo
 
-
+    def print_nodes(self):
+        for node in self.nodes:
+            print(node)

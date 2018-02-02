@@ -11,7 +11,6 @@ class LtpParser(object):
     default_ltp_api_key = "s1n5k7M9i5zXTqamAy3V1U7CkwskygraFX5fpKyH"
     # 路径变化这里需要修改
     ltp_path = "/Users/alexsun/codes/nlp/ltp_practice/ltp_model/ltp_data"
-
     @staticmethod
     def cutting(sentence, table=None):
         """

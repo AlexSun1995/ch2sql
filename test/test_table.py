@@ -114,9 +114,10 @@ def test_mapping():
     assert os.path.exists(path)
     path = os.path.abspath(path)
     table = Table(table_name='销售业绩报表', path=path)
-    s1 = "线上客户的总订单金额"
+    s1 = "京东商城的总税款"
     s1 = Sentence(s1, table)
     s1.node_mapping()
+    print(s1.print_nodes())
 
 def test_stopwords():
     from ch2sql.tools import similar

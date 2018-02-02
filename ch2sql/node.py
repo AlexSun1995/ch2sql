@@ -1,10 +1,23 @@
 # -*-coding:utf-8 -*-
+from functools import total_ordering
 
 
+@total_ordering
 class NodeInfo(object):
     """
     表示节点的信息, 如 word="大于" type="ON"(操作符节点) symbol='>'
     如果type='NN' 或者type='VN', 则score表示节点属于这个类型的概率得分值
+     SE  Select Node 选择节点("返回","看看","查询" 等查询动词)
+     ON  Operator Node 操作符节点("等于","大于","包含","不等于" 等)
+     FN  Function Node 聚集函数节点("之和","最大","最低","平均" 等)
+     AN  Attribute Node 属性节点(非硬编码, 对应数据表的属性名,从table或者tableName.sql中自动获取)
+     VN  Value Node 值节点(非硬编码, 属性节点对应的值)
+     LN  Logical Node 逻辑节点(和 ',' '且')
+     GN Group Node 分组节点('各','各个','每个'等, 对应SQL中的GROUP BY)
+     QN Quantifier Node  数量节点('任意','全部')
+     SN Sort Node 排序节点('从高到低','按照顺序显示')
+     TN Top Node ("top100", "前10个")
+     UN Unknown Node 未知类型节点
     """
 
     def __init__(self, _word, _type, _symbol, _score=1):
@@ -18,6 +31,12 @@ class NodeInfo(object):
 
     def __repr__(self):
         return "word:{} type:{} symbol:{} score:{}".format(self.word, self.type, self.symbol, self.score)
+
+    def __lt__(self, other):
+        return self.type == other.type and self.score < other.score
+
+    def __eq__(self, other):
+        return self.type == other.type and self.score == other.score
 
 
 class NodeMapper(object):
@@ -40,6 +59,7 @@ class NodeMapper(object):
     # Function Node
     node_map['平均'] = NodeInfo('平均', 'FN', 'AVG')
     node_map['平均值'] = NodeInfo('平均值', 'FN', 'AVG')
+    node_map['均值'] = NodeInfo('均值', 'FN', 'AVG')
     node_map['最大'] = NodeInfo('最大', 'FN', 'MAX')
     node_map['最高'] = NodeInfo('最高', 'FN', 'MAX')
     node_map['最小'] = NodeInfo('最小', 'FN', 'MIN')
@@ -57,6 +77,10 @@ class NodeMapper(object):
 
     # ...
 
+    # ALL Column Node
+    node_map['数据'] = NodeInfo('数据', 'ACN', '*')
+    node_map['情况'] = NodeInfo('情况', 'ACN', '*')
+
     @staticmethod
     def get_possible_node_info_list(node, table):
         from ch2sql.tools import similar
@@ -67,7 +91,7 @@ class NodeMapper(object):
             result.append(NodeMapper.node_map[word])
             return result
         if similar.is_stopwords(word):
-            result.append(NodeInfo(word, 'UN', " ", _score=0))
+            result.append(NodeInfo(word, 'UN', " ", _score=1))
             return result
         for column_name in table.get_column_names():
             score = similar.similar_scores(column_name, word)
@@ -81,30 +105,19 @@ class NodeMapper(object):
                 if value is None or type(value) != str or len(value) == 0:
                     continue
                 score = similar.similar_scores(word, value)
-                result.append(NodeInfo(word, 'NN', column_name + '.' + value, _score=score))
+                result.append(NodeInfo(word, 'VN', column_name + '.' + value, _score=score))
         return result
 
 
 class Node(object):
     """
-       基于数据库语义的节点表示类
+       基于数据库语义的节点表示
        fields:
            str: initWord: 原始单词
            str: stdWord: 数据库语义的标准词
            str: posTag: 词性标注类型
            str: dataType 数据类型(text, date, number)  如果nodeType是AN, 或者NN
-           str: nodeType 节点类型,我们将节点划分为8个类型
-                SE  Select Node 选择节点("返回","看看","查询" 等查询动词)
-                ON  Operator Node 操作符节点("等于","大于","包含","不等于" 等)
-                FN  Function Node 聚集函数节点("之和","最大","最低","平均" 等)
-                AN  Attribute Node 属性节点(非硬编码, 对应数据表的属性名,从table或者tableName.sql中自动获取)
-                VN  Value Node 值节点(非硬编码, 属性节点对应的值)
-                LN  Logical Node 逻辑节点(和 ',' '且')
-                GN Group Node 分组节点('各','各个','每个'等, 对应SQL中的GROUP BY)
-                QN Quantifier Node  数量节点('任意','全部')
-                SN Sort Node 排序节点('从高到低','按照顺序显示')
-                TN Top Node ("top100", "前10个")
-                UN Unknown Node 未知类型节点
+           str: nodeInfo
            Node parent
            list: Node child
     """
@@ -113,3 +126,8 @@ class Node(object):
         self.word = word
         self.table = table
         self.pos_tag = pos_tag
+        self.nodeInfo = None
+
+    def __repr__(self):
+        return "word:{} --> type:{} -->sql symbol:{}".format(self.word, self.nodeInfo.type,
+                                                             self.nodeInfo.symbol)

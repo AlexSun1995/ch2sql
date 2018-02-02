@@ -193,8 +193,8 @@ def _levenshtein_distance(sentence1, sentence2):
     Based on:
         http://rosettacode.org/wiki/Levenshtein_distance#Python
     '''
-    first = sentence1.split()
-    second = sentence2.split()
+    first = sentence1
+    second = sentence2
     if len(first) > len(second):
         first, second = second, first
     distances = range(len(first) + 1)
@@ -212,7 +212,7 @@ def _levenshtein_distance(sentence1, sentence2):
     return 2 ** (-1 * levenshtein)
 
 
-def _similarity_distance(s1, s2):
+def _wv_similarity_distance(s1, s2):
     '''
     compute similarity with distance measurement
     '''
@@ -221,11 +221,7 @@ def _similarity_distance(s1, s2):
     b = _sim_molecule(_get_wv(s2))
     # https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.norm.html
     g = 1 / (np.linalg.norm(a - b) + 1)
-    u = _levenshtein_distance(s1, s2)
-    r = g * 5 + u * 0.8
-    r = min(r, 1.0)
-
-    return float("%.3f" % r)
+    return float("%.3f" % g)
 
 
 def _similarity_distance_2(s1, s2):
@@ -247,10 +243,11 @@ def compare(s1, s2, seg=True):
           Flase : The original sentences have been cut.
     '''
     assert len(s1) > 0 and len(s2) > 0, "The length of s1 and s2 should > 0."
+    u = _levenshtein_distance(s1, s2)
     if seg:
         s1 = ' '.join(jieba.cut(s1))
         s2 = ' '.join(jieba.cut(s2))
-    return _similarity_distance(s1, s2)
+    return min(_wv_similarity_distance(s1, s2) * 5 + u * 0.8,1.0)
 
 
 def display(word):
@@ -269,4 +266,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    print(compare("浙江大学","北京大学"))

@@ -6,6 +6,8 @@ import importlib
   载入哈工大同义词表
 """
 import ch2sql
+
+# 哈工大近义词表
 hit_source_file = os.path.join(ch2sql.__file__[:-12], "lib/hit_simi_words.txt")
 # 载入停用词表,这里暂时使用四川大学停用词表
 stopwords_file = os.path.join(ch2sql.__file__[:-12], "lib/stopwords.txt")
@@ -87,6 +89,29 @@ def synonyms_list(word):
     else:
         return [tup[0] for tup in _synonyms_dict[_id_dict[word]]]
 
+def _levenshtein_distance(sentence1, sentence2):
+    '''
+    Return the Levenshtein distance between two strings.
+    Based on:
+        http://rosettacode.org/wiki/Levenshtein_distance#Python
+    '''
+    first = sentence1
+    second = sentence2
+    if len(first) > len(second):
+        first, second = second, first
+    distances = range(len(first) + 1)
+    for index2, char2 in enumerate(second):
+        new_distances = [index2 + 1]
+        for index1, char1 in enumerate(first):
+            if char1 == char2:
+                new_distances.append(distances[index1])
+            else:
+                new_distances.append(1 + min((distances[index1],
+                                             distances[index1 + 1],
+                                             new_distances[-1])))
+        distances = new_distances
+    levenshtein = distances[-1]
+    return 2 ** (-1 * levenshtein)
 
 def similar_scores(word1, word2):
     """
@@ -100,15 +125,9 @@ def similar_scores(word1, word2):
         flag = False
     return synonyms.compare(word1, word2)
 
+def edit_distance_score(word1, word2):
+    return _levenshtein_distance(word1, word2)
 
 
 if __name__ == "__main__":
-    print(synonyms_list("类别"))
-    import jieba
-    s = "北京市今天的最高气温"
-    li = list(jieba.cut(s))
-    new_li = [std_word(word) for word in li]
-    print(new_li)
-    word1 = "预测销售量"
-    word2 = "中国"
-    print(similar_scores(word1, word2))
+    pass
