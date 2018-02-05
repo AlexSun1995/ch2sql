@@ -18,8 +18,9 @@ class Sentence(object):
         """
         self.parser = LtpParser
         self.table = table
-        self._sentence = sentence
-        self._tokens = list(self.parser.cutting(sentence, table))
+        self._init_sentence= sentence
+        self.sentence = Sentence.query_rewrite(sentence)
+        self._tokens = list(self.parser.cutting(self.sentence, table))
         self._pos_tags = list(self.parser.pos_tagging(self.tokens))
         self._entities_list = list(self.parser.entity_recognize(self.tokens, self.pos_tags))
         self._dp_tree = self.parser.dependency_parsing(self.tokens, self.pos_tags)
@@ -30,6 +31,10 @@ class Sentence(object):
         for i in range(len(self.tokens)):
             ans.append(Node(self.tokens[i], self.table, self.pos_tags[i]))
         return ans
+
+    @property
+    def words(self):
+        return self._words
 
     @property
     def tokens(self):
@@ -46,6 +51,46 @@ class Sentence(object):
     @property
     def dp_tree(self):
         return self._dp_tree
+
+    @staticmethod
+    def query_rewrite(input_words):
+        """
+        对自然查询语句进行预处理进行预处理(查询改写模块)
+        1. 将"比...大/高" 转换为 '大于...' 的形式
+        2. 将"a 到 b 之间" 转化为 '大于等于a且小于等于b的形式'
+        3. 将"比...小/低" 转换为 '大于...' 的形式
+        ...
+        :return: new_sentence
+        """
+        words = input_words
+
+        # 匹配'比...好'的形式
+        regex1 = re.compile(r'(\w*)比(\w+)([大高多好])')
+        if regex1.match(words):
+            words = regex1.sub(r'\1大于\2', words)
+            return words
+
+        # 匹配'比...低'的形式
+        regex2 = re.compile(r'(\w*)比(\w+)([低少差小])')
+        if regex2.match(words):
+            words = regex2.sub(r'\1小于\2', words)
+            return words
+
+        # 匹配'a到b之间'的形式
+        regex3 = re.compile(r'(\w*)[在?](\w+|\d+)[到和与](\w+|\d+)之间')
+        if regex3.match(words):
+            words = regex3.sub(r'\1小于\3并且大于\2',words)
+            return words
+
+        # 匹配'a到b间'的形式, 考虑如何上条和这一条进行合并
+        regex3 = re.compile(r'(\w*)[在?](\w+|\d+)[到和与](\w+|\d+)间')
+        if regex3.match(words):
+            words = regex3.sub(r'\1小于\3并且大于\2', words)
+            return words
+
+        # TODO 错别字纠正
+
+        # TODO ...
 
     def node_mapping(self):
         mapper = NodeMapper
@@ -67,4 +112,10 @@ class Sentence(object):
 
     def print_nodes(self):
         for node in self.nodes:
-            print(node)
+           print(node)
+
+if __name__ == "__main__":
+    s1 = "比小明成绩差"
+    s2 = "比北京GDP低"
+    s3 = "在30和40之间"
+    print(Sentence.query_rewrite(s1))
