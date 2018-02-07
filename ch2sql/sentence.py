@@ -1,9 +1,8 @@
 # -*-coding:utf-8 -*-
 
-from ch2sql.database import Table
 from ch2sql.tools.hit_ltp import LtpParser
 from ch2sql.node import *
-import heapq
+
 
 class Sentence(object):
     """
@@ -11,14 +10,14 @@ class Sentence(object):
     使查询语句的处理依赖但不耦合LTP工具
     """
 
-    def __init__(self, sentence="这是一条测试语句", table=None):
+    def __init__(self, sentence="一条测试语句", table=None):
         """
         :param sentence: 查询语句输入
         :param table: 查询对应的数据表格对象
         """
         self.parser = LtpParser
         self.table = table
-        self._init_sentence= sentence
+        self._init_sentence = sentence
         self.sentence = Sentence.query_rewrite(sentence)
         self._tokens = list(self.parser.cutting(self.sentence, table))
         self._pos_tags = list(self.parser.pos_tagging(self.tokens))
@@ -33,8 +32,8 @@ class Sentence(object):
         return ans
 
     @property
-    def words(self):
-        return self._words
+    def init_sentence(self):
+        return self._init_sentence
 
     @property
     def tokens(self):
@@ -65,34 +64,31 @@ class Sentence(object):
         words = input_words
 
         # 匹配'比...好'的形式
-        regex1 = re.compile(r'(\w*)比(\w+)([大高多好])')
-        if regex1.match(words):
-            words = regex1.sub(r'\1大于\2', words)
-            return words
+        regex1 = re.compile(r'比(\w+)([大高多好])')
+        words = re.sub(regex1, r'大于\1', words)
 
         # 匹配'比...低'的形式
-        regex2 = re.compile(r'(\w*)比(\w+)([低少差小])')
-        if regex2.match(words):
-            words = regex2.sub(r'\1小于\2', words)
-            return words
+        regex2 = re.compile(r'比(\w+)([低少差小])')
+        words = re.sub(regex2, r'小于\1', words)
 
         # 匹配'a到b之间'的形式
-        regex3 = re.compile(r'(\w*)[在?](\w+|\d+)[到和与](\w+|\d+)之间')
-        if regex3.match(words):
-            words = regex3.sub(r'\1小于\3并且大于\2',words)
-            return words
+        regex3 = re.compile(r'[在?](\w+|\d+)[到和与](\w+|\d+)之间')
+        words = re.sub(regex3, r'小于\2并且大于\1', words)
 
         # 匹配'a到b间'的形式, 考虑如何上条和这一条进行合并
-        regex3 = re.compile(r'(\w*)[在?](\w+|\d+)[到和与](\w+|\d+)间')
-        if regex3.match(words):
-            words = regex3.sub(r'\1小于\3并且大于\2', words)
-            return words
+        regex3 = re.compile(r'[在?](\w+|\d+)[到和与](\w+|\d+)间')
+        words = re.sub(regex3, r'小于\2并且大于\1', words)
 
         # TODO 错别字纠正
 
         # TODO ...
+        return words
 
     def node_mapping(self):
+        """
+        token结果映射到数据库语义定义的节点中
+        :return:
+        """
         mapper = NodeMapper
         for node in self.nodes:
             possible_list = mapper.get_possible_node_info_list(node, self.table)
@@ -101,21 +97,24 @@ class Sentence(object):
             if len(new_list) == 1:
                 nodeInfo = new_list[0]
             elif len(new_list) > 1:
-                sorted_list = sorted(new_list,reverse=True)[0]
+                sorted_list = sorted(new_list, reverse=True)[0]
                 if sorted_list[0].score - sorted_list[1].score >= 0.2:
                     nodeInfo = sorted_list[0]
                 else:
-                    nodeInfo = NodeInfo(node.word, 'UN',' ',1)
+                    nodeInfo = NodeInfo(node.word, 'UN', ' ', 1)
             else:
-                nodeInfo = NodeInfo(node.word, 'UN',' ',1)
+                nodeInfo = NodeInfo(node.word, 'UN', ' ', 1)
             node.nodeInfo = nodeInfo
 
     def print_nodes(self):
         for node in self.nodes:
-           print(node)
+            print(node)
+
 
 if __name__ == "__main__":
-    s1 = "比小明成绩差"
-    s2 = "比北京GDP低"
-    s3 = "在30和40之间"
+    s1 = "查询成绩比小明好的学生"
+    s2 = "想知道比北京GDP低的城市"
+    s3 = "GDP在北京和宁波之间的城市"
     print(Sentence.query_rewrite(s1))
+    print(Sentence.query_rewrite(s2))
+    print(Sentence.query_rewrite(s3))
