@@ -74,19 +74,19 @@ class Parser(object):
                             elif mode == 'A':
                                 result.append(Target(_attribute=node_list[0].nodeInfo.symbol,
                                                      _type=None))
-                        # 将匹配的结果切除
-                        size_to_drop = len(mode)
-                        while size_to_drop > 0:
-                            nodes.remove(nodes[-1])
-                            tokens.remove(tokens[-1])
-                            size_to_drop -= 1
-                        # 切除以后的末尾是连词或者逗号,此时应该继续匹配
-                        # 这里使用递归的方法反复匹配
-                        if len(nodes) > 0 and \
-                                (nodes[-1].nodeInfo.symbol == 'AND' or nodes[-1].pos_tag == 'wp'):
-                            # 切除连词
-                            nodes.remove(nodes[-1])
-                            _target_find()
+                            # 将匹配的结果切除
+                            size_to_drop = len(mode)
+                            while size_to_drop > 0:
+                                nodes.remove(nodes[-1])
+                                tokens.remove(tokens[-1])
+                                size_to_drop -= 1
+                            # 切除以后的末尾是连词或者逗号,此时应该继续匹配
+                            # 这里使用递归的方法反复匹配
+                            if len(nodes) > 0 and \
+                                    (nodes[-1].nodeInfo.symbol == 'AND' or nodes[-1].pos_tag == 'wp'):
+                                # 切除连词
+                                nodes.remove(nodes[-1])
+                                _target_find()
                     elif len(node_type_list) > len(mode):
                         break
 
