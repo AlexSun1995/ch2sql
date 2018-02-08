@@ -1,5 +1,6 @@
 # -*-coding:utf-8 -*-
 from functools import total_ordering
+import re
 
 
 @total_ordering
@@ -74,8 +75,16 @@ class NodeMapper(object):
     node_map['所有'] = NodeInfo('所有', 'QN', 'ALL')
     node_map['全部'] = NodeInfo('全部', 'QN', 'ALL')
     node_map['任意'] = NodeInfo('任意', 'QN', 'ANY')
+    node_map['top'] = NodeInfo('top', 'QN', '')
 
-    # ...
+    # Logical Node 'AND'
+    node_map['而且'] = NodeInfo('而且', 'LN', 'AND')
+    node_map['并且'] = NodeInfo('并且', 'LN', 'AND')
+    node_map['和'] = NodeInfo('和', 'LN', 'AND')
+
+    # Group Node
+    node_map['各'] = NodeInfo('各', 'GN', 'GROUP BY')
+    node_map['每个'] = NodeInfo('每个', 'GN', 'GROUP BY')
 
     # ALL Column Node
     node_map['数据'] = NodeInfo('数据', 'ACN', '*')
@@ -83,6 +92,12 @@ class NodeMapper(object):
 
     @staticmethod
     def get_possible_node_info_list(node, table):
+        """
+        根据node的word匹配其node info,获取可能的node info列表
+        :param node: 进行匹配的node
+        :param table: node对应的table
+        :return:
+        """
         from ch2sql.tools import similar
         result = []
         word = node.word
@@ -90,9 +105,22 @@ class NodeMapper(object):
         if word in NodeMapper.node_map:
             result.append(NodeMapper.node_map[word])
             return result
+
+        # match the top%d patten
+        regex = re.compile("top\d+", re.I)
+        if regex.match(word):
+            result.append(NodeInfo('top', 'QN', "top" + word[3:], _score=1))
+            return result
+
+        # map logical nodes(by entity list)
+        if node.pos_tag == 'c':
+            result.append(NodeInfo(word, 'LN', "AND", _score=1))
+
+        # word in stopwords list
         if similar.is_stopwords(word):
             result.append(NodeInfo(word, 'UN', " ", _score=1))
             return result
+
         for column_name in table.get_column_names():
             score = similar.similar_scores(column_name, word)
             result.append(NodeInfo(word, 'AN', column_name, _score=score))
@@ -129,5 +157,9 @@ class Node(object):
         self.nodeInfo = None
 
     def __repr__(self):
+        return "word:{} --> type:{} -->sql symbol:{}".format(self.word, self.nodeInfo.type,
+                                                             self.nodeInfo.symbol)
+
+    def __str__(self):
         return "word:{} --> type:{} -->sql symbol:{}".format(self.word, self.nodeInfo.type,
                                                              self.nodeInfo.symbol)

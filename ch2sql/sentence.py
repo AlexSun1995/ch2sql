@@ -19,11 +19,21 @@ class Sentence(object):
         self.table = table
         self._init_sentence = sentence
         self.sentence = Sentence.query_rewrite(sentence)
-        self._tokens = list(self.parser.cutting(self.sentence, table))
+        self._tokens = list(self.parser.cutting(self.sentence, self.table))
         self._pos_tags = list(self.parser.pos_tagging(self.tokens))
         self._entities_list = list(self.parser.entity_recognize(self.tokens, self.pos_tags))
         self._dp_tree = self.parser.dependency_parsing(self.tokens, self.pos_tags)
         self.nodes = self.init_nodes()
+        self.node_mapping()
+
+    def drop(self, index):
+        """
+        drop token and nodes(since one token maps to one node)
+        :param index: position of the node or token
+        :return:
+        """
+        self._tokens.remove(self._tokens[index])
+        self.nodes.remove(self.nodes[index])
 
     def init_nodes(self):
         ans = []

@@ -1,4 +1,3 @@
-from ch2sql.tools import similar
 from ch2sql.tools.exception import UnknownDataSourceTypeException
 from ch2sql.tools.excel import ExcelWrapper
 

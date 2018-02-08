@@ -17,6 +17,8 @@ _id_dict = {}
 stopwords = []
 flag = True
 load_stopwords_flag = False
+
+
 def load():
     """
     载入哈工大同义词表
@@ -45,6 +47,7 @@ def load():
         loaded = True
         print("hit-synonyms lib file loaded")
 
+
 def load_stopwords():
     with open(stopwords_file, 'r', encoding='utf-8') as f:
         for line in f:
@@ -52,6 +55,7 @@ def load_stopwords():
             stopwords.append(line)
     global load_stopwords_flag
     load_stopwords_flag = True
+
 
 def is_stopwords(word):
     global load_stopwords_flag
@@ -61,6 +65,7 @@ def is_stopwords(word):
         return True
     else:
         return False
+
 
 def std_word(word):
     """
@@ -89,6 +94,7 @@ def synonyms_list(word):
     else:
         return [tup[0] for tup in _synonyms_dict[_id_dict[word]]]
 
+
 def _levenshtein_distance(sentence1, sentence2):
     '''
     Return the Levenshtein distance between two strings.
@@ -107,11 +113,12 @@ def _levenshtein_distance(sentence1, sentence2):
                 new_distances.append(distances[index1])
             else:
                 new_distances.append(1 + min((distances[index1],
-                                             distances[index1 + 1],
-                                             new_distances[-1])))
+                                              distances[index1 + 1],
+                                              new_distances[-1])))
         distances = new_distances
     levenshtein = distances[-1]
     return 2 ** (-1 * levenshtein)
+
 
 def similar_scores(word1, word2):
     """
@@ -124,6 +131,7 @@ def similar_scores(word1, word2):
         importlib.reload(jieba)
         flag = False
     return synonyms.compare(word1, word2)
+
 
 def edit_distance_score(word1, word2):
     return _levenshtein_distance(word1, word2)

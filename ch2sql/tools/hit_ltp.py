@@ -11,6 +11,7 @@ class LtpParser(object):
     default_ltp_api_key = "s1n5k7M9i5zXTqamAy3V1U7CkwskygraFX5fpKyH"
     # 路径变化这里需要修改
     ltp_path = "/Users/alexsun/codes/nlp/ltp_practice/ltp_model/ltp_data"
+
     @staticmethod
     def cutting(sentence, table=None):
         """
@@ -71,7 +72,6 @@ class LtpParser(object):
         parser.release()
         return arcs
 
-
     @staticmethod
     def getting_by_cloud(sentence, api_key=default_ltp_api_key, pattern='dp'):
         """
@@ -105,3 +105,9 @@ class LtpParser(object):
             result = LtpParser.getting_by_cloud(sentence, pattern=pattern)
             print('pattern type:{}'.format(pattern))
             print(result)
+
+
+if __name__ == "__main__":
+    test = LtpParser
+    s = "查询大于1000的销售员"
+    print(list(test.pos_tagging(test.cutting(s))))

@@ -76,7 +76,7 @@ def test_ltp():
     path = os.path.abspath(path)
     table = Table(table_name='广告投放效果', path=path)
     ltp = LtpParser()
-    s = "APP下载量比APP激活量大"
+    s = "下载量比APP激活量大"
     tokens = LtpParser.cutting(s, table)
     tags = LtpParser.pos_tagging(tokens)
     entities = LtpParser.entity_recognize(tokens, tags)
@@ -99,7 +99,7 @@ def test_sentence():
     assert os.path.exists(path)
     path = os.path.abspath(path)
     table = Table(table_name='广告投放效果', path=path)
-    s1 = "北京地区的APP下载量"
+    s1 = "APP下载量在10万和12万之间的数据"
     s1 = Sentence(s1, table)
     print(s1.tokens)
     print(list(s1.pos_tags))
@@ -114,12 +114,30 @@ def test_mapping():
     assert os.path.exists(path)
     path = os.path.abspath(path)
     table = Table(table_name='销售业绩报表', path=path)
-    s1 = "京东商城的总税款"
+    s1 = "看看税费Top10的数据"
     s1 = Sentence(s1, table)
     s1.node_mapping()
     print(s1.print_nodes())
+    print(s1.dp_tree)
 
 def test_stopwords():
     from ch2sql.tools import similar
     assert similar.is_stopwords("等于") is False
     assert similar.is_stopwords("的") is True
+
+def test_sentence2():
+    from ch2sql.sentence import Sentence
+    from ch2sql.database import Table
+    import os
+    path = "../datasource/广告投放效果2.xls"
+    assert os.path.exists(path)
+    path = os.path.abspath(path)
+    table = Table(table_name='广告投放效果', path=path)
+    s1 = "查询APP下载量比APP激活量大的数据"
+    s1 = Sentence(s1, table)
+    print(s1.sentence)
+    s1.node_mapping()
+    tokens = s1.tokens
+    arcs = s1.dp_tree
+    print("\t".join("%s -- > %s:%s; " % (tokens[arcs[i].head - 1], tokens[i], arcs[i].relation)
+                    for i in range(len(arcs))))
