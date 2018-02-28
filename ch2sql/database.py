@@ -63,6 +63,11 @@ class Table(object):
         index = list(name_list).index(name)
         return self.columns[index].values_sample(num)
 
+    def get_column_type_by_name(self, name):
+        name_list = self.get_column_names()
+        index = list(name_list).index(name)
+        return self.columns[index].data_type
+
     def __str__(self):
         print("table name:{}".format(self.table_name))
 

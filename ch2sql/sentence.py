@@ -105,16 +105,16 @@ class Sentence(object):
             new_list = [item for item in possible_list if item.score is not None and item.score > 0.5]
             # the node info with the highest score will be the nodeInfo of the node
             if len(new_list) == 1:
-                nodeInfo = new_list[0]
+                node_info = new_list[0]
             elif len(new_list) > 1:
-                sorted_list = sorted(new_list, reverse=True)[0]
-                if sorted_list[0].score - sorted_list[1].score >= 0.2:
-                    nodeInfo = sorted_list[0]
+                sorted_list = sorted(new_list, reverse=True)
+                if (sorted_list[0].score > 0.8) or sorted_list[0].score - sorted_list[1].score >= 0.2:
+                    node_info = sorted_list[0]
                 else:
-                    nodeInfo = NodeInfo(node.word, 'UN', ' ', 1)
+                    node_info = NodeInfo(node.word, 'UN', ' ', 1)
             else:
-                nodeInfo = NodeInfo(node.word, 'UN', ' ', 1)
-            node.nodeInfo = nodeInfo
+                node_info = NodeInfo(node.word, 'UN', ' ', 1)
+            node.nodeInfo = node_info
 
     def print_nodes(self):
         for node in self.nodes:

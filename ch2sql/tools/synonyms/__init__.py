@@ -14,8 +14,8 @@
 """
 Chinese Synonyms for Natural Language Processing and Understanding.
 """
-from __future__ import print_function
 from __future__ import division
+from __future__ import print_function
 
 __copyright__ = "Copyright (c) 2017 . All Rights Reserved"
 __author__ = "Hu Ying Xi<>, Hai Liang Wang<hailiang.hl.wang@gmail.com>"
@@ -43,9 +43,7 @@ else:
 
 import json
 import gzip
-import shutil
 from word2vec import KeyedVectors
-from utils import any2utf8
 from utils import any2unicode
 import jieba.posseg as _tokenizer
 import jieba

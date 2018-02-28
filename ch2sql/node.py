@@ -19,6 +19,7 @@ class NodeInfo(object):
      SN Sort Node 排序节点('从高到低','按照顺序显示')
      TN Top Node ("top100", "前10个")
      UN Unknown Node 未知类型节点
+     NUMBER 数值节点
     """
 
     def __init__(self, _word, _type, _symbol, _score=1):
@@ -48,7 +49,6 @@ class NodeMapper(object):
     node_map['返回'] = NodeInfo('返回', 'SN', 'SELECT')
     # node type hard code part...¬
     # Operator Node
-    # TODO 用正则表达式处理中文中常常出现的'比...高模式'
     node_map['大于'] = NodeInfo('大于', 'ON', '>')
     node_map['高于'] = NodeInfo('高于', 'ON', '>')
     node_map['小于'] = NodeInfo('大于', 'ON', '<')
@@ -70,6 +70,7 @@ class NodeMapper(object):
     node_map['总'] = NodeInfo('总', 'FN', 'SUM')
     node_map['之和'] = NodeInfo('之和', 'FN', 'SUM')
     node_map['总数'] = NodeInfo('总数', 'FN', 'COUNT')
+    node_map['数量'] = NodeInfo('数量', 'FN', 'COUNT')
 
     # Quantifier Node
     node_map['所有'] = NodeInfo('所有', 'QN', 'ALL')
@@ -85,6 +86,7 @@ class NodeMapper(object):
     # Group Node
     node_map['各'] = NodeInfo('各', 'GN', 'GROUP BY')
     node_map['每个'] = NodeInfo('每个', 'GN', 'GROUP BY')
+    node_map['不同'] = NodeInfo('不同', 'GN', 'GROUP BY')
 
     # ALL Column Node
     node_map['数据'] = NodeInfo('数据', 'ACN', '*')
@@ -109,7 +111,7 @@ class NodeMapper(object):
         # match the top%d patten
         regex = re.compile("top\d+", re.I)
         if regex.match(word):
-            result.append(NodeInfo('top', 'QN', "top" + word[3:], _score=1))
+            result.append(NodeInfo('top', 'QN', word[3:], _score=1))
             return result
 
         # map logical nodes(by entity list)
@@ -120,6 +122,10 @@ class NodeMapper(object):
         if similar.is_stopwords(word):
             result.append(NodeInfo(word, 'UN', " ", _score=1))
             return result
+        # number node
+        regex = re.compile(r'\d+')
+        if regex.match(word):
+            result.append(NodeInfo(word, 'NUMBER', word, _score=1))
 
         for column_name in table.get_column_names():
             score = similar.similar_scores(column_name, word)
@@ -157,9 +163,8 @@ class Node(object):
         self.nodeInfo = None
 
     def __repr__(self):
-        return "word:{} --> type:{} -->sql symbol:{}".format(self.word, self.nodeInfo.type,
-                                                             self.nodeInfo.symbol)
+        return "<word:{} type:{} symbol:{}>".format(self.word, self.nodeInfo.type,
+                                                    self.nodeInfo.symbol)
 
     def __str__(self):
-        return "word:{} --> type:{} -->sql symbol:{}".format(self.word, self.nodeInfo.type,
-                                                             self.nodeInfo.symbol)
+        return self.__repr__()
