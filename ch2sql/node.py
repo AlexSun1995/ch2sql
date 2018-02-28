@@ -76,12 +76,18 @@ class NodeMapper(object):
     node_map['所有'] = NodeInfo('所有', 'QN', 'ALL')
     node_map['全部'] = NodeInfo('全部', 'QN', 'ALL')
     node_map['任意'] = NodeInfo('任意', 'QN', 'ANY')
-    node_map['top'] = NodeInfo('top', 'QN', '')
+
+    # Top Node
+    node_map['top'] = NodeInfo('top', 'TN', '')
 
     # Logical Node 'AND'
     node_map['而且'] = NodeInfo('而且', 'LN', 'AND')
     node_map['并且'] = NodeInfo('并且', 'LN', 'AND')
     node_map['和'] = NodeInfo('和', 'LN', 'AND')
+
+    # Logical Node 'OR'
+    node_map['或者'] = NodeInfo('或者', 'LN', 'OR')
+    node_map['或'] = NodeInfo('或', 'LN', 'OR')
 
     # Group Node
     node_map['各'] = NodeInfo('各', 'GN', 'GROUP BY')
@@ -111,7 +117,7 @@ class NodeMapper(object):
         # match the top%d patten
         regex = re.compile("top\d+", re.I)
         if regex.match(word):
-            result.append(NodeInfo('top', 'QN', word[3:], _score=1))
+            result.append(NodeInfo('top', 'TN', word[3:], _score=1))
             return result
 
         # map logical nodes(by entity list)

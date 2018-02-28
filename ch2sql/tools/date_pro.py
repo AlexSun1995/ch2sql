@@ -132,7 +132,7 @@ def ch2date(str_in):
 
         # 年的特殊情况处理
         if (str_in.find('今年') != -1) | (str_in.find('该年') != -1) | (str_in.find('本年') != -1) | (
-                str_in.find('这年') != -1) | (str_in.find('这一年')):
+                    str_in.find('这年') != -1) | (str_in.find('这一年')):
             year = today.year
 
         elif str_in.find('去年') != -1:
@@ -297,7 +297,7 @@ def ch2date(str_in):
 
 
 if __name__ == '__main__':
-    str_in = '30天前'
+    str_in = '下个月'
 
     begin, end, isRange, byMon, byYear = ch2date(str_in)
 

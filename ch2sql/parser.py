@@ -84,10 +84,19 @@ class ConditionBlock(object):
         self.an = an
         self.op = op
         self.value = value
+        # 默认情况下与下一个条件块用AND 逻辑连接
+        self.relation_with_next = 'AND'
 
     def __repr__(self):
         return "condition block ==> " + \
-               str(self.an) + ' ' + str(self.op) + " " + str(self.value)
+               str(self.an) + ' ' + str(self.op) + " " + str(self.value) + " " + self.relation_with_next
+
+    def change_relation_to_or(self):
+        """
+        将和下一个ConditionBlock的连接关系改为OR
+        :return:
+        """
+        self.relation_with_next = 'OR'
 
     def __str__(self):
         return self.__repr__()
@@ -110,6 +119,10 @@ class Parser(object):
         self.targets = []
         self.conditions = []
         self.condition_sentence = None
+        self.group_by_attribute = []
+        self.select_targets = None
+        # eg.销量top10, ("销量", 10)
+        self.top_attribute_and_number = []
 
     def remove_meaningless_nodes(self):
         """
@@ -124,6 +137,16 @@ class Parser(object):
         return removed_nodes
 
     def top_parser(self):
+        pass
+
+    def group_by_parser(self):
+        pass
+
+    def time_parser(self):
+        """
+        抽取查询语句中的时间信息
+        :return:
+        """
         pass
 
     def sort_parser(self):
@@ -199,6 +222,7 @@ class Parser(object):
         # 将nodes替换为切分以后的nodes, 处理后的nodes只剩下条件块
         self.nodes = nodes
         self.tokens = tokens
+        self.select_targets = result
         return result
 
     def condition_parser(self):
@@ -256,6 +280,10 @@ class Parser(object):
                         an_tmp.add_function_node(nodes[_r].nodeInfo.symbol)
                         an_tmp.add_nodes_index(_r)
 
+                    # Top Node
+                    elif nodes[_r].nodeInfo.type == 'TN':
+                        an_tmp.add_top_node(nodes[_r].nodeInfo.symbol)
+
             # 寻找top node
             # 例 "平均销售量top10", '下载量top10' 等
             for i_ in range(len(nodes)):
@@ -265,7 +293,7 @@ class Parser(object):
                         # 如果top node ATT 依赖是此函数中考虑的an_节点
                         # 则top节点修饰这个an_节点
                         if _r == an_index_ and arcs[_r].relation == 'ATT':
-                            an_tmp.add_top_node(int(nodes[an_index_].nodeInfo.symbol))
+                            an_tmp.add_top_node(int(nodes[i_].nodeInfo.symbol))
                             an_tmp.add_nodes_index(i_)
 
             an_tmp.add_nodes_index(an_index_)
@@ -337,7 +365,6 @@ class Parser(object):
                 condition_block.an = an
                 condition_block.op = op
                 self.conditions.append(condition_block)
-                print(condition_block)
 
                 # 清除在此轮中匹配的节点
                 nodes_index_to_clean = an.nodes_index.copy()
@@ -347,10 +374,61 @@ class Parser(object):
                     nodes.remove(node_tmp)
 
         # 纯粹值节点情况处理
-        # 如'武汉天气' 其中的'武汉' 标准的说法应该是: 地区是武汉
+        # 如'武汉天气' 其中的'武汉' 标准的说法应该是: 地区是武汉,
+        # 提取出值节点(VN), 并将其标准化. 如果有多个VN, 默认情况下用AND进行逻辑连接
         value_nodes = find_nodes_by_type('VN')
+        regex = re.compile(r'(\w+)\.(\w+)')
         if len(value_nodes) == 1:
-            pass
+            val_node = value_nodes[0]
+            tmp = re.findall(regex, val_node.nodeInfo.symbol)
+            value = tmp[0][1]
+            attribute = tmp[0][0]
+            op = '='
+            value_condition = ConditionBlock(attribute, op, value)
+            self.conditions.append(value_condition)
+
+        elif len(value_nodes) > 1:
+            value_conditions = []
+            for i in range(len(value_nodes)):
+                val_node = nodes[value_nodes[i]]
+                tmp = re.findall(regex, val_node.nodeInfo.symbol)
+                value = tmp[0][1]
+                attribute = tmp[0][0]
+                op = '='
+                value_condition = ConditionBlock(attribute, op, value)
+                value_conditions.append(value_condition)
+
+                # 如果i>0, 在value_nodes[i-1] 和value_nodes[i]
+                # 之间找有没有值为'OR'的逻辑节点
+                if i > 0:
+                    left_index = nodes.index(nodes[value_nodes[i - 1]])
+                    right_index = nodes.index(nodes[value_nodes[i]])
+                    for p in range(left_index + 1, right_index):
+                        if nodes[p].nodeInfo.symbol == 'OR':
+                            value_conditions[len(value_conditions) - 2].change_relation_to_or()
+
+            # 将value_conditions中的数据放进self.conditions 中
+            for c in value_conditions:
+                self.conditions.append(c)
+
+        # 如果nodes中还存在AN节点, 则可能是top条件或者group_by 节点
+        an_nodes = find_nodes_by_type('AN')
+        if len(an_nodes) == 1:
+            cur_an_index = an_nodes[0]
+            an0 = connect_nodes_to_an(nodes[cur_an_index], cur_an_index)
+            if an0.group_by:
+                self.group_by_attribute.append(nodes[cur_an_index].nodeInfo.symbol)
+
+            if an0.top_node is not None:
+                self.top_attribute_and_number.append((an0.attribute_name, an0.top_node))
+        else:
+            raise IllegalQueryException("属性节点太多!")
+
+        print("group_by attribute")
+        print(self.group_by_attribute)
+        print("-----> top attribute")
+        print(self.top_attribute_and_number)
+        print(self.conditions)
 
     def from_parser(self):
         return self._table.table_name
