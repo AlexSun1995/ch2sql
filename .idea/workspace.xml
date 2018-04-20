@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="075fd1db-e5e2-434d-bf90-b51f8e3063be" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ch2sql/tools/synonyms/time.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch2sql/date_pro.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch2sql/parser_unit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datasource/广告投放效果2.xls" afterPath="$PROJECT_DIR$/datasource/广告投放效果2.xls" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch2sql/__init__.py" afterPath="$PROJECT_DIR$/ch2sql/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch2sql/node.py" afterPath="$PROJECT_DIR$/ch2sql/node.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch2sql/output.py" afterPath="$PROJECT_DIR$/ch2sql/output.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch2sql/parser.py" afterPath="$PROJECT_DIR$/ch2sql/parser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch2sql/tools/date_pro.py" afterPath="$PROJECT_DIR$/ch2sql/tools/date_pro.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch2sql/sentence.py" afterPath="$PROJECT_DIR$/ch2sql/sentence.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_parser.py" afterPath="$PROJECT_DIR$/test/test_parser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_table.py" afterPath="$PROJECT_DIR$/test/test_table.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,50 +22,86 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser5.coverage" NAME="Nosetests for test_parser.test_condition_parser5 Coverage Results" MODIFIED="1519809838293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser5.coverage" NAME="Nosetests for test_parser.test_condition_parser5 Coverage Results" MODIFIED="1523359275047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1517572780254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql/tools/synonyms" />
-    <SUITE FILE_PATH="coverage/ch2sql$similar.coverage" NAME="similar Coverage Results" MODIFIED="1517556808003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql/tools" />
-    <SUITE FILE_PATH="coverage/ch2sql$date_pro.coverage" NAME="date_pro Coverage Results" MODIFIED="1519796277804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql/tools" />
+    <SUITE FILE_PATH="coverage/ch2sql$date_pro.coverage" NAME="date_pro Coverage Results" MODIFIED="1523878818707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql" />
     <SUITE FILE_PATH="coverage/ch2sql$hit_ltp.coverage" NAME="hit_ltp Coverage Results" MODIFIED="1518073915661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql/tools" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_table.coverage" NAME="Nosetests for test_table.test_table Coverage Results" MODIFIED="1517241727021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_jieba_cut.coverage" NAME="Nosetests for test_table.test_jieba_cut Coverage Results" MODIFIED="1517384280286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_ltp.coverage" NAME="Nosetests for test_table.test_ltp Coverage Results" MODIFIED="1517892206507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_19.coverage" NAME="Nosetests for test_parser.test_total_19 Coverage Results" MODIFIED="1524123145251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$simi_words.coverage" NAME="simi_words Coverage Results" MODIFIED="1516782903372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_sentence2.coverage" NAME="Nosetests for test_table.test_sentence2 Coverage Results" MODIFIED="1518160202100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_target_get.coverage" NAME="Nosetests for test_parser.test_target_get Coverage Results" MODIFIED="1518156838917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_sentence2.coverage" NAME="Nosetests for test_table.test_sentence2 Coverage Results" MODIFIED="1520581701624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_16.coverage" NAME="Nosetests for test_parser.test_total_16 Coverage Results" MODIFIED="1523879283452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_target_get.coverage" NAME="Nosetests for test_parser.test_target_get Coverage Results" MODIFIED="1522324044782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser2.coverage" NAME="Nosetests for test_parser.test_condition_parser2 Coverage Results" MODIFIED="1522215214387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_in_test_table_py.coverage" NAME="Nosetests in test_table.py Coverage Results" MODIFIED="1517413006893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$123__1_.coverage" NAME="123 (1) Coverage Results" MODIFIED="1516782606229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql/tools" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_04.coverage" NAME="Nosetests for test_parser.test_total_04 Coverage Results" MODIFIED="1523813153743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_in_test1_py.coverage" NAME="Nosetests in test1.py Coverage Results" MODIFIED="1513316490493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$word2vec.coverage" NAME="word2vec Coverage Results" MODIFIED="1516782536843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_mapping.coverage" NAME="Nosetests for test_table.test_mapping Coverage Results" MODIFIED="1517892032769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$sentence.coverage" NAME="sentence Coverage Results" MODIFIED="1523779272680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_03.coverage" NAME="Nosetests for test_parser.test_total_03 Coverage Results" MODIFIED="1523812497216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_09.coverage" NAME="Nosetests for test_parser.test_total_09 Coverage Results" MODIFIED="1523814796869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_10.coverage" NAME="Nosetests for test_parser.test_total_10 Coverage Results" MODIFIED="1523878097987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser1.coverage" NAME="Nosetests for test_parser.test_condition_parser1 Coverage Results" MODIFIED="1522324282631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_15.coverage" NAME="Nosetests for test_parser.test_total_15 Coverage Results" MODIFIED="1523878922160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_in_test_parser_py.coverage" NAME="Nosetests in test_parser.py Coverage Results" MODIFIED="1518367347486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser6.coverage" NAME="Nosetests for test_parser.test_condition_parser6 Coverage Results" MODIFIED="1523360309894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_05.coverage" NAME="Nosetests for test_parser.test_total_05 Coverage Results" MODIFIED="1523813193264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$similar.coverage" NAME="similar Coverage Results" MODIFIED="1517556808003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql/tools" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_14.coverage" NAME="Nosetests for test_parser.test_total_14 Coverage Results" MODIFIED="1523878587257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_17.coverage" NAME="Nosetests for test_parser.test_total_17 Coverage Results" MODIFIED="1523879625643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_table.coverage" NAME="Nosetests for test_table.test_table Coverage Results" MODIFIED="1517241727021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_get_ltp_result.coverage" NAME="Nosetests for test_parser.test_get_ltp_result Coverage Results" MODIFIED="1519806342422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser2.coverage" NAME="Nosetests for test_parser.test_condition_parser2 Coverage Results" MODIFIED="1519798932113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_20.coverage" NAME="Nosetests for test_parser.test_total_20 Coverage Results" MODIFIED="1524123086573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_02.coverage" NAME="Nosetests for test_parser.test_total_02 Coverage Results" MODIFIED="1523812770285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_11.coverage" NAME="Nosetests for test_parser.test_total_11 Coverage Results" MODIFIED="1523859005473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$ltp_helper.coverage" NAME="ltp_helper Coverage Results" MODIFIED="1513266518357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ch2sql$123.coverage" NAME="123 Coverage Results" MODIFIED="1516782693468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
     <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_stopwords.coverage" NAME="Nosetests for test_table.test_stopwords Coverage Results" MODIFIED="1517499981312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_in_test_table_py.coverage" NAME="Nosetests in test_table.py Coverage Results" MODIFIED="1517413006893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser.coverage" NAME="Nosetests for test_parser.test_condition_parser Coverage Results" MODIFIED="1519725836950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$123__1_.coverage" NAME="123 (1) Coverage Results" MODIFIED="1516782606229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql/tools" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_01.coverage" NAME="Nosetests for test_parser.test_total_01 Coverage Results" MODIFIED="1523777704889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_sentence.coverage" NAME="Nosetests for test_table.test_sentence Coverage Results" MODIFIED="1517848630783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1516782300642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/anaconda3/lib/python3.6/site-packages/synonyms" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser3.coverage" NAME="Nosetests for test_parser.test_condition_parser3 Coverage Results" MODIFIED="1519806550773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_in_test1_py.coverage" NAME="Nosetests in test1.py Coverage Results" MODIFIED="1513316490493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$word2vec.coverage" NAME="word2vec Coverage Results" MODIFIED="1516782536843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser3.coverage" NAME="Nosetests for test_parser.test_condition_parser3 Coverage Results" MODIFIED="1520581658099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_07.coverage" NAME="Nosetests for test_parser.test_total_07 Coverage Results" MODIFIED="1523813425585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_13.coverage" NAME="Nosetests for test_parser.test_total_13 Coverage Results" MODIFIED="1523859358859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$hit_simi_words.coverage" NAME="hit_simi_words Coverage Results" MODIFIED="1516783232961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_mapping.coverage" NAME="Nosetests for test_table.test_mapping Coverage Results" MODIFIED="1517892032769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$sentence.coverage" NAME="sentence Coverage Results" MODIFIED="1517991115661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql" />
     <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_1_test_syn.coverage" NAME="Nosetests for test_1.test_syn Coverage Results" MODIFIED="1516781571880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser4.coverage" NAME="Nosetests for test_parser.test_condition_parser4 Coverage Results" MODIFIED="1519809696145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_in_test_parser_py.coverage" NAME="Nosetests in test_parser.py Coverage Results" MODIFIED="1518367347486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_condition_parser4.coverage" NAME="Nosetests for test_parser.test_condition_parser4 Coverage Results" MODIFIED="1523359640657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_06.coverage" NAME="Nosetests for test_parser.test_total_06 Coverage Results" MODIFIED="1523813238809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_12.coverage" NAME="Nosetests for test_parser.test_total_12 Coverage Results" MODIFIED="1523859085153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_parser_test_total_18.coverage" NAME="Nosetests for test_parser.test_total_18 Coverage Results" MODIFIED="1523880513649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/ch2sql$123__2_.coverage" NAME="123 (2) Coverage Results" MODIFIED="1516782882891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/ch2sql$parser.coverage" NAME="parser Coverage Results" MODIFIED="1518162828073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ch2sql" />
     <SUITE FILE_PATH="coverage/ch2sql$Nosetests_for_test_table_test_excel.coverage" NAME="Nosetests for test_table.test_excel Coverage Results" MODIFIED="1516896324940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="parser.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch2sql/parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10005">
-              <caret line="435" column="26" lean-forward="true" selection-start-line="435" selection-start-column="26" selection-end-line="435" selection-end-column="26" />
+            <state relative-caret-position="-391">
+              <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding>
-                <element signature="e#78#120#0" expanded="true" />
+                <element signature="e#97#139#0" expanded="true" />
+                <element signature="e#238#421#1" expanded="false" />
+                <element signature="e#2017#2036#0" expanded="false" />
+                <element signature="e#2075#5396#0" expanded="false" />
+                <element signature="e#5438#15855#0" expanded="false" />
+                <element signature="e#15892#15921#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parser_unit.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch2sql/parser_unit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,60 +109,60 @@
       <file leaf-file-name="test_parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="137" column="19" lean-forward="true" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
+            <state relative-caret-position="19596">
+              <caret line="852" column="0" lean-forward="true" selection-start-line="852" selection-start-column="0" selection-end-line="852" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hit_ltp.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch2sql/tools/hit_ltp.py">
+      <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch2sql/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="874">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="date_pro.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch2sql/date_pro.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3338">
+              <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#184#209#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exception.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch2sql/tools/exception.py">
+      <file leaf-file-name="node.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch2sql/node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="-3269">
+              <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="excel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch2sql/tools/excel.py">
+      <file leaf-file-name="sentence.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch2sql/sentence.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+            <state relative-caret-position="1794">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch2sql/__init__.py">
+      <file leaf-file-name="encoder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/json/encoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="similar.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch2sql/tools/similar.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="4600">
+              <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -130,18 +171,18 @@
       <file leaf-file-name="output.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch2sql/output.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+            <state relative-caret-position="-334">
+              <caret line="38" column="55" lean-forward="true" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="node.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch2sql/node.py">
+      <file leaf-file-name="runner.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/unittest/runner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1370">
-              <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+            <state relative-caret-position="2392">
+              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -157,6 +198,9 @@
     </option>
   </component>
   <component name="FindInProjectRecents">
+    <findStrings>
+      <find>targets</find>
+    </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
@@ -183,7 +227,6 @@
         <option value="$PROJECT_DIR$/ch2sql/simi_words.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/simi_words.py" />
         <option value="$PROJECT_DIR$/ch2sql/word2vec.py" />
-        <option value="$PROJECT_DIR$/ch2sql/__init__.py" />
         <option value="$PROJECT_DIR$/ch2sql/ltp_helper.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/excel.py" />
         <option value="$PROJECT_DIR$/test/jieba2.py" />
@@ -192,18 +235,21 @@
         <option value="$PROJECT_DIR$/ch2sql/tools/synonyms/word2vec.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/synonyms/utils.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/test/test_table.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/hit_ltp.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/similar.py" />
         <option value="$PROJECT_DIR$/json.py" />
-        <option value="$PROJECT_DIR$/ch2sql/sentence.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/synonyms/__init__.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/exception.py" />
         <option value="$PROJECT_DIR$/ch2sql/database.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/synonyms/time.py" />
-        <option value="$PROJECT_DIR$/ch2sql/output.py" />
         <option value="$PROJECT_DIR$/ch2sql/tools/date_pro.py" />
+        <option value="$PROJECT_DIR$/ch2sql/sentence.py" />
+        <option value="$PROJECT_DIR$/ch2sql/__init__.py" />
+        <option value="$PROJECT_DIR$/test/test_table.py" />
+        <option value="$PROJECT_DIR$/ch2sql/parser_unit.py" />
         <option value="$PROJECT_DIR$/ch2sql/node.py" />
+        <option value="$PROJECT_DIR$/ch2sql/output.py" />
+        <option value="$PROJECT_DIR$/ch2sql/date_pro.py" />
         <option value="$PROJECT_DIR$/ch2sql/parser.py" />
         <option value="$PROJECT_DIR$/test/test_parser.py" />
       </list>
@@ -216,8 +262,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="341" />
+    <option name="y" value="394" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="829" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -234,7 +282,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,13 +298,7 @@
               <item name="ch2sql" type="b2602c69:ProjectViewProjectNode" />
               <item name="ch2sql" type="462c0819:PsiDirectoryNode" />
               <item name="ch2sql" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ch2sql" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ch2sql" type="462c0819:PsiDirectoryNode" />
-              <item name="ch2sql" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="sentence.py" type="8704e2dd:PyFileNode" />
             </path>
             <path>
               <item name="ch2sql" type="b2602c69:ProjectViewProjectNode" />
@@ -282,6 +323,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -316,8 +358,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Nosetests for test_parser.test_condition_parser5">
-    <configuration name="Nosetests for test_parser.test_condition_parser2" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Nosetests for test_parser.test_total_19">
+    <configuration name="Nosetests for test_parser.test_total_16" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -330,10 +372,10 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_parser.test_condition_parser2&quot;" />
+      <option name="_new_target" value="&quot;test_parser.test_total_16&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Nosetests for test_parser.test_condition_parser3" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration name="Nosetests for test_parser.test_total_17" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -346,10 +388,10 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_parser.test_condition_parser3&quot;" />
+      <option name="_new_target" value="&quot;test_parser.test_total_17&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Nosetests for test_parser.test_condition_parser4" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration name="Nosetests for test_parser.test_total_18" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -362,10 +404,10 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_parser.test_condition_parser4&quot;" />
+      <option name="_new_target" value="&quot;test_parser.test_total_18&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Nosetests for test_parser.test_condition_parser5" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration name="Nosetests for test_parser.test_total_19" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -378,10 +420,10 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_parser.test_condition_parser5&quot;" />
+      <option name="_new_target" value="&quot;test_parser.test_total_19&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Nosetests for test_parser.test_get_ltp_result" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration name="Nosetests for test_parser.test_total_20" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -394,28 +436,31 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_parser.test_get_ltp_result&quot;" />
+      <option name="_new_target" value="&quot;test_parser.test_total_20&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_condition_parser2" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_get_ltp_result" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_condition_parser3" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_condition_parser4" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_condition_parser5" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_16" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_17" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_18" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_19" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_20" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_condition_parser5" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_condition_parser4" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_condition_parser3" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_get_ltp_result" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_condition_parser2" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_19" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_20" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_18" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_17" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests for test_parser.test_total_16" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -428,53 +473,53 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Nosetests_for_test_parser_test_condition_parser3 - 2018.02.28 at 16h 29m 18s.xml">
-      <configuration name="Nosetests for test_parser.test_condition_parser3" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_18 - 2018.04.16 at 20h 08m 42s.xml">
+      <configuration name="Nosetests for test_parser.test_total_18" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_condition_parser4 - 2018.02.28 at 17h 17m 52s.xml">
-      <configuration name="Nosetests for test_parser.test_condition_parser4" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_19 - 2018.04.16 at 20h 31m 38s.xml">
+      <configuration name="Nosetests for test_parser.test_total_19" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_condition_parser4 - 2018.02.28 at 17h 18m 43s.xml">
-      <configuration name="Nosetests for test_parser.test_condition_parser4" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_19 - 2018.04.19 at 15h 15m 00s.xml">
+      <configuration name="Nosetests for test_parser.test_total_19" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_condition_parser4 - 2018.02.28 at 17h 19m 45s.xml">
-      <configuration name="Nosetests for test_parser.test_condition_parser4" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_19 - 2018.04.19 at 15h 32m 10s.xml">
+      <configuration name="Nosetests for test_parser.test_total_19" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_condition_parser4 - 2018.02.28 at 17h 21m 43s.xml">
-      <configuration name="Nosetests for test_parser.test_condition_parser4" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_19 - 2018.04.19 at 15h 32m 33s.xml">
+      <configuration name="Nosetests for test_parser.test_total_19" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_condition_parser5 - 2018.02.28 at 17h 24m 06s.xml">
-      <configuration name="Nosetests for test_parser.test_condition_parser5" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_20 - 2018.04.16 at 20h 38m 43s.xml">
+      <configuration name="Nosetests for test_parser.test_total_20" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_get_ltp_result - 2018.02.28 at 16h 21m 43s.xml">
-      <configuration name="Nosetests for test_parser.test_get_ltp_result" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_20 - 2018.04.16 at 20h 39m 00s.xml">
+      <configuration name="Nosetests for test_parser.test_total_20" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_get_ltp_result - 2018.02.28 at 16h 22m 49s.xml">
-      <configuration name="Nosetests for test_parser.test_get_ltp_result" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_20 - 2018.04.19 at 15h 14m 42s.xml">
+      <configuration name="Nosetests for test_parser.test_total_20" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_get_ltp_result - 2018.02.28 at 16h 24m 32s.xml">
-      <configuration name="Nosetests for test_parser.test_get_ltp_result" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_20 - 2018.04.19 at 15h 15m 19s.xml">
+      <configuration name="Nosetests for test_parser.test_total_20" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_for_test_parser_test_get_ltp_result - 2018.02.28 at 16h 25m 50s.xml">
-      <configuration name="Nosetests for test_parser.test_get_ltp_result" configurationId="tests" />
+    <history-entry file="Nosetests_for_test_parser_test_total_20 - 2018.04.19 at 15h 31m 36s.xml">
+      <configuration name="Nosetests for test_parser.test_total_20" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21459228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24892704" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06771463" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25151148" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5937122" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13059251" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23337364" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31680775" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -496,104 +541,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch2sql/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/sentence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#65#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/sentence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#65#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/sentence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#65#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/sentence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#65#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/urllib3/connectionpool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="857" column="0" lean-forward="false" selection-start-line="857" selection-start-column="0" selection-end-line="857" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch2sql/datasource/node.py" />
     <entry file="file://$PROJECT_DIR$/ch2sql/sim_words.py" />
     <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/encodings/ascii.py">
@@ -720,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch2sql/tools/synonyms/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="989">
@@ -741,29 +686,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/sentence.py">
+    <entry file="file://$PROJECT_DIR$/ch2sql/tools/synonyms/time.py" />
+    <entry file="file://$PROJECT_DIR$/ch2sql/tools/date_pro.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
-          <folding />
+        <state relative-caret-position="3237">
+          <caret line="296" column="0" lean-forward="false" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/database.py">
+    <entry file="file://$PROJECT_DIR$/ch2sql/tools/excel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="74" column="21" lean-forward="false" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+        <state relative-caret-position="44">
+          <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch2sql/tools/hit_ltp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
-            <element signature="e#0#65#0" expanded="false" />
+            <element signature="e#0#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch2sql/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="161">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -775,78 +726,157 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/tools/excel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/tools/date_pro.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/tools/synonyms/time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3130">
-          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/output.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch2sql/tools/similar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/tools/hit_ltp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="2484">
+          <caret line="108" column="43" lean-forward="false" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch2sql/node.py">
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/nose/case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1370">
-          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="140" column="21" lean-forward="false" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/nose/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="445" column="0" lean-forward="false" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/nose/plugins/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/logging/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="1292" column="0" lean-forward="false" selection-start-line="1292" selection-start-column="0" selection-end-line="1292" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/nose/suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="176" column="0" lean-forward="false" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/nose/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1219">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/nose/result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2346">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/unittest/runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2392">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/json/encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4600">
+          <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch2sql/parser_unit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch2sql/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch2sql/sentence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1794">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="137" column="19" lean-forward="true" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
+        <state relative-caret-position="19596">
+          <caret line="852" column="0" lean-forward="true" selection-start-line="852" selection-start-column="0" selection-end-line="852" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch2sql/parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10005">
-          <caret line="435" column="26" lean-forward="true" selection-start-line="435" selection-start-column="26" selection-end-line="435" selection-end-column="26" />
+        <state relative-caret-position="-391">
+          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding>
-            <element signature="e#78#120#0" expanded="true" />
+            <element signature="e#97#139#0" expanded="true" />
+            <element signature="e#238#421#1" expanded="false" />
+            <element signature="e#2017#2036#0" expanded="false" />
+            <element signature="e#2075#5396#0" expanded="false" />
+            <element signature="e#5438#15855#0" expanded="false" />
+            <element signature="e#15892#15921#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch2sql/output.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-334">
+          <caret line="38" column="55" lean-forward="true" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch2sql/node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3269">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch2sql/date_pro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3338">
+          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+          <folding>
+            <element signature="e#184#209#0" expanded="true" />
           </folding>
         </state>
       </provider>

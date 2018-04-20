@@ -5,6 +5,7 @@ from ch2sql.node import *
 
 
 class Sentence(object):
+
     """
     对查询语言输入统一包装. 分词,词性标注, 实体识别的代码在LtpParser类中
     使查询语句的处理依赖但不耦合LTP工具

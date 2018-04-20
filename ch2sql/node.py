@@ -62,8 +62,10 @@ class NodeMapper(object):
     node_map['平均值'] = NodeInfo('平均值', 'FN', 'AVG')
     node_map['均值'] = NodeInfo('均值', 'FN', 'AVG')
     node_map['最大'] = NodeInfo('最大', 'FN', 'MAX')
+    node_map['最多'] = NodeInfo('最多', 'FN', 'MAX')
     node_map['最高'] = NodeInfo('最高', 'FN', 'MAX')
     node_map['最小'] = NodeInfo('最小', 'FN', 'MIN')
+    node_map['最少'] = NodeInfo('最少', 'FN', 'MIN')
     node_map['最低'] = NodeInfo('最低', 'FN', 'MIN')
     node_map['总数'] = NodeInfo('总数', 'FN', 'SUM')
     node_map['总量'] = NodeInfo('总量', 'FN', 'SUM')
@@ -95,8 +97,8 @@ class NodeMapper(object):
     node_map['不同'] = NodeInfo('不同', 'GN', 'GROUP BY')
 
     # ALL Column Node
-    node_map['数据'] = NodeInfo('数据', 'ACN', '*')
-    node_map['情况'] = NodeInfo('情况', 'ACN', '*')
+    node_map['数据'] = NodeInfo('数据', 'ACN', 'ALL')
+    node_map['情况'] = NodeInfo('情况', 'ACN', 'ALL')
 
     @staticmethod
     def get_possible_node_info_list(node, table):

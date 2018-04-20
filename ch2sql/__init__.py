@@ -5,6 +5,7 @@
 
 from ch2sql.database import Column
 
+
 def _get_target(sentence):
     """
     :param type(sentence): Sentence

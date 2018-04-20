@@ -120,10 +120,12 @@ def test_mapping():
     print(s1.print_nodes())
     print(s1.dp_tree)
 
+
 def test_stopwords():
     from ch2sql.tools import similar
     assert similar.is_stopwords("等于") is False
     assert similar.is_stopwords("的") is True
+
 
 def test_sentence2():
     from ch2sql.sentence import Sentence
